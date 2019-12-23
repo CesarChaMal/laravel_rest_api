@@ -1,0 +1,58 @@
+https://hackernoon.com/a-beginners-guide-to-building-a-rest-api-with-laravel-5c717afd77fe
+
+composer global require laravel/installer
+
+#on path ~/composer/vendor/bin
+#on path %COMPOSER_HOME%\vendor\bin
+laravel new laravel_rest_api
+or
+composer create-project --prefer-dist laravel/laravel laravel_rest_api
+or
+php composer create-project --prefer-dist laravel/laravel laravel_rest_api
+
+#<6
+#php artisan make:auth
+#>=6
+composer require laravel/ui
+php artisan ui vue --auth
+npm install && npm run dev
+php artisan make:model Article -m
+php artisan make:model Customer
+php artisan make:model User
+php artisan make:controller CustomersController --resource
+php artisan make:controller CustomersController --model=Customer
+php artisan migrate
+composer require laravel/passport
+php artisan migrate
+php artisan passport:install
+php artisan serve
+
+http://127.0.0.1:8000/
+http://127.0.0.1:8000/home
+http://127.0.0.1:8000/user
+http://127.0.0.1:8000/api/user
+http://127.0.0.1:8000/api/v1/cars
+http://127.0.0.1:8000/api/v2/cars
+http://127.0.0.1:8000/api/v3/cars
+http://127.0.0.1:8000/api/v4/cars
+http://127.0.0.1:8000/api/users
+
+mysql -uroot -pmysql -e "SELECT 1 + 1 FROM DUAL;"
+
+mysqld --default-authentication-plugin=mysql_native_password
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'mysql';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysql';
+mysql -uroot -pmysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'mysql';"
+mysql -uroot -pmysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysql';"
+
+echo select 1 from dual; | sqlplus SYSTEM/oracle@\"localhost:1521/xe\"
+
+sqlplus -s /nolog <<EOF
+connect SYSTEM@//localhost:1521/xe
+select 1 from dual;
+quit
+EOF
+
+postgres --version
+set PGPASSWORD=postgres&& psql -d postgres -U postgres -h localhost -c "select version();"
+
